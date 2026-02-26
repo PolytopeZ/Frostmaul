@@ -7,14 +7,14 @@
 
 ## Overview
 
-| Milestone | Duration | Weeks |
-|-----------|----------|-------|
-| [M1 — Prototype](#m1--prototype) | 4 weeks | W1–W4 |
-| [M2 — Alpha](#m2--alpha) | 8 weeks | W5–W12 |
-| [M3 — Beta](#m3--beta) | 6 weeks | W13–W18 |
-| [M4 — Soft Launch](#m4--soft-launch) | 4 weeks | W19–W22 |
-| [M5 — Global Launch](#m5--global-launch) | 2 weeks | W23–W24 |
-| [M6 — Post-Launch Season 1](#m6--post-launch-season-1) | 8 weeks | W25–W33 |
+| Milestone                                              | Duration | Weeks   |
+| ------------------------------------------------------ | -------- | ------- |
+| [M1 — Prototype](#m1--prototype)                       | 4 weeks  | W1–W4   |
+| [M2 — Alpha](#m2--alpha)                               | 8 weeks  | W5–W12  |
+| [M3 — Beta](#m3--beta)                                 | 6 weeks  | W13–W18 |
+| [M4 — Soft Launch](#m4--soft-launch)                   | 4 weeks  | W19–W22 |
+| [M5 — Global Launch](#m5--global-launch)               | 2 weeks  | W23–W24 |
+| [M6 — Post-Launch Season 1](#m6--post-launch-season-1) | 8 weeks  | W25–W33 |
 
 ---
 
@@ -29,7 +29,7 @@
 - [x] Set up build targets for iOS and Android
 
 ### 🏗️ Grid & Maze System
-- [ ] Implement 9×16 Tilemap grid with buildable / non-buildable cell flags
+- [x] Implement 9×16 Tilemap grid with buildable / non-buildable cell flags
 - [ ] Create cell selection and tower placement via tap input
 - [ ] Implement Flow Field pathfinding (enemy navigation from top to bottom)
 - [ ] Implement real-time BFS path validation — block placement if no valid exit exists
