@@ -56,6 +56,32 @@ public class FlowFieldCalculator : MonoBehaviour
         return _integrationField[cell.x, cell.y] != int.MaxValue;
     }
 
+    public List<Vector2Int> GetPath()
+    {
+        if (_directionField == null) return new List<Vector2Int>();
+
+        var path = new List<Vector2Int>();
+        Vector2Int current = new Vector2Int(Constants.GridEntryColumn, Constants.GridEntryRow);
+        Vector2Int exit = new Vector2Int(Constants.GridExitColumn, Constants.GridExitRow);
+        int maxSteps = _gridManager.Columns * _gridManager.Rows;
+
+        for (int step = 0; step < maxSteps; step++)
+        {
+            path.Add(current);
+            if (current == exit) break;
+
+            Vector2 dir = _directionField[current.x, current.y];
+            if (dir == Vector2.zero) break;
+
+            int dc = Mathf.RoundToInt(dir.x);
+            int dr = -Mathf.RoundToInt(dir.y);
+            current = new Vector2Int(current.x + dc, current.y + dr);
+        }
+
+        return path;
+    }
+
+
     // ── Event Handler ────────────────────────────────────────────────────────
 
     private void HandleCellStateChanged(Vector2Int cell, CellState newState)

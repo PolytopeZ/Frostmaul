@@ -33,7 +33,7 @@
 - [x] Create cell selection and tower placement via tap input
 - [x] Implement Flow Field pathfinding (enemy navigation from top to bottom)
 - [x] Implement real-time BFS path validation — block placement if no valid exit exists
-- [ ] Show path preview overlay (highlighted tiles + path length count) on tower hold
+- [x] Show path preview overlay (highlighted tiles + path length count) on tower hold
 - [ ] Handle grid scroll (drag vertically) for tall mazes
 
 ### 🏹 Tower System (Core)
