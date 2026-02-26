@@ -5,6 +5,8 @@ public class TowerPlacer : MonoBehaviour
 {
     [SerializeField] private GridManager _gridManager;
     [SerializeField] private GameObject _highlight;
+    [SerializeField] private PathValidator _pathValidator;
+
 
     private FrostmaulInput _input;
     private Vector2Int _selectedCell = new Vector2Int(-1, -1);
@@ -65,10 +67,16 @@ public class TowerPlacer : MonoBehaviour
 
     private void PlaceTower(Vector2Int cell)
     {
+        if (!_pathValidator.IsPlacementValid(cell))
+        {
+            return;
+        }
+
         _gridManager.SetCellState(cell, CellState.Tower);
         ClearSelection();
         // TODO Tower T1: spawn tower prefab here
     }
+
 
     private void ClearSelection()
     {

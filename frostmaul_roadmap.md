@@ -32,7 +32,7 @@
 - [x] Implement 9×16 Tilemap grid with buildable / non-buildable cell flags
 - [x] Create cell selection and tower placement via tap input
 - [x] Implement Flow Field pathfinding (enemy navigation from top to bottom)
-- [ ] Implement real-time BFS path validation — block placement if no valid exit exists
+- [x] Implement real-time BFS path validation — block placement if no valid exit exists
 - [ ] Show path preview overlay (highlighted tiles + path length count) on tower hold
 - [ ] Handle grid scroll (drag vertically) for tall mazes
 
