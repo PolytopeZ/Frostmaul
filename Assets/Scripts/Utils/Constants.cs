@@ -12,4 +12,8 @@ public static class Constants
     // Exit cell: bottom-center (row 15, column 4)
     public const int GridExitRow = GridRows - 1;        // = 15
     public const int GridExitColumn = GridColumns / 2;  // = 4
+
+    // Errors 
+    public const int InvalidCell = -1;
+
 }

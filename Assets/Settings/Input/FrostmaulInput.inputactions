@@ -1,0 +1,55 @@
+{
+    "version": 1,
+    "name": "FrostmaulInput",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "3968a53a-94d5-4737-9af7-a5eab2100380",
+            "actions": [
+                {
+                    "name": "Tap",
+                    "type": "Button",
+                    "id": "2b4b7619-37f5-4ed0-a8d3-42e65ee8d7c7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PointerPosition",
+                    "type": "Value",
+                    "id": "cf11c9e1-0e92-4270-b036-ae47779a33a7",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d8d16bcf-cc73-4601-b5ff-289529de782e",
+                    "path": "<Pointer>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fdc727bc-ed71-43a7-bf83-ab4079231dea",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PointerPosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
