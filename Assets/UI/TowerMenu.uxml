@@ -5,6 +5,10 @@
                padding: 12px;
                border-top-width: 2px;
                border-top-color: rgb(70,70,70);">
+        <ui:VisualElement style="flex-direction: row; justify-content: flex-end; margin-bottom: 6px;">
+            <ui:Button name="cancel-build-btn" text="Cancel"
+                style="font-size: 14px; padding: 6px 20px;" />
+        </ui:VisualElement>
         <ui:ScrollView name="tower-scroll" mode="Horizontal"
             style="height: 140px;" />
     </ui:VisualElement>
@@ -18,7 +22,11 @@
                border-top-color: rgb(70,70,70);">
         <ui:Label name="sell-info-label" text="Sell for $0?"
             style="color: white; font-size: 20px; margin-bottom: 16px;" />
-        <ui:Button name="sell-confirm-btn" text="Sell"
-            style="width: 180px; height: 56px; font-size: 18px;" />
+        <ui:VisualElement style="flex-direction: row; justify-content: center;">
+            <ui:Button name="sell-confirm-btn" text="Sell"
+                style="width: 140px; height: 56px; font-size: 18px; margin-right: 16px;" />
+            <ui:Button name="cancel-sell-btn" text="Cancel"
+                style="width: 140px; height: 56px; font-size: 18px;" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

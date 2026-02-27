@@ -40,6 +40,12 @@ public class TowerMenu : MonoBehaviour
         Button sellBtn = root.Q<Button>("sell-confirm-btn");
         sellBtn.clicked += OnSellConfirmed;
 
+        Button cancelBuildBtn = root.Q<Button>("cancel-build-btn");
+        cancelBuildBtn.clicked += _towerPlacer.CancelSelection;
+
+        Button cancelSellBtn = root.Q<Button>("cancel-sell-btn");
+        cancelSellBtn.clicked += _towerPlacer.CancelSelection;
+
         BuildButtons();
     }
 

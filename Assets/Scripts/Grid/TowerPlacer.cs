@@ -120,6 +120,11 @@ public class TowerPlacer : MonoBehaviour
         PlaceTower(_selectedCell);
     }
 
+    public void CancelSelection()
+    {
+        ClearSelection();
+    }
+
     public TowerBase GetTowerAt(Vector2Int cell)
     {
         _placedTowers.TryGetValue(cell, out TowerBase tower);
