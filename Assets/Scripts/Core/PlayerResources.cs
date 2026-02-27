@@ -37,7 +37,8 @@ public class PlayerResources : MonoBehaviour
 
     private void HandleEnemyKilled(EnemyBase enemy)
     {
-        _gold += enemy.Data.RewardGold;
+        int bonus = RunManager.Current?.ExtraGoldPerKill ?? 0;
+        _gold += enemy.Data.RewardGold + bonus;
         _killCount++;
 
         OnGoldChanged?.Invoke(_gold);
@@ -66,4 +67,9 @@ public class PlayerResources : MonoBehaviour
         OnGoldChanged?.Invoke(_gold);
     }
 
+    public void AddLives(int amount)
+    {
+        _lives += amount;
+        OnLivesChanged?.Invoke(_lives);
+    }
 }

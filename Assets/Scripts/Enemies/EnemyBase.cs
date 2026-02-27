@@ -55,7 +55,8 @@ public class EnemyBase : MonoBehaviour
             if (direction == Vector2.zero) return;
         }
 
-        transform.position += (Vector3)(direction * _data.Speed * Time.deltaTime);
+        float effectiveSpeed = _data.Speed * (RunManager.Current?.EnemySpeedMultiplier ?? 1f);
+        transform.position += (Vector3)(direction * effectiveSpeed * Time.deltaTime);
     }
 
     private void CheckExit()
@@ -105,9 +106,8 @@ public class EnemyBase : MonoBehaviour
 
     public void OnSpawn()
     {
-        _currentHp = _data.MaxHp;
+        _currentHp = _data.MaxHp * (RunManager.Current?.EnemyHpMultiplier ?? 1f);
         _reachedExit = false;
         _isDead = false;
     }
-
 }

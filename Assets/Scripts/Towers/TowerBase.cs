@@ -61,7 +61,7 @@ public class TowerBase : MonoBehaviour
         if (_attackCooldown <= 0f)
         {
             Attack();
-            _attackCooldown = 1f / _data.AttackSpeed;
+            _attackCooldown = 1f / EffectiveAttackSpeed();
         }
     }
 
@@ -70,7 +70,7 @@ public class TowerBase : MonoBehaviour
     private void FindTarget()
     {
         int count = Physics2D.OverlapCircleNonAlloc(
-            transform.position, _data.Range, s_HitBuffer, _enemyLayerMask);
+    transform.position, EffectiveRange(), s_HitBuffer, _enemyLayerMask);
 
         if (count == 0)
         {
@@ -108,7 +108,27 @@ public class TowerBase : MonoBehaviour
 
         ProjectileBase proj = _projectilePool.Get();
         proj.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
-        proj.Initialize(_currentTarget, _data.Damage, _data.ProjectileSpeed);
+        proj.Initialize(_currentTarget, EffectiveDamage(), _data.ProjectileSpeed);
+    }
+
+    // ── Helpers ───────────────────────────────────────────────────────────────
+    private float EffectiveDamage()
+    {
+        if (RunManager.Current == null) return _data.Damage;
+        TowerModifiers mods = RunManager.Current.GetTowerMods(_data.Type);
+        return _data.Damage * RunManager.Current.GlobalDamageMultiplier * mods.DamageMultiplier;
+    }
+
+    private float EffectiveRange()
+    {
+        if (RunManager.Current == null) return _data.Range;
+        return _data.Range * RunManager.Current.GetTowerMods(_data.Type).RangeMultiplier;
+    }
+
+    private float EffectiveAttackSpeed()
+    {
+        if (RunManager.Current == null) return _data.AttackSpeed;
+        return _data.AttackSpeed * RunManager.Current.GetTowerMods(_data.Type).AttackSpeedMultiplier;
     }
 
 
