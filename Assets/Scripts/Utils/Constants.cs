@@ -24,4 +24,7 @@ public static class Constants
     public const float EnemyExitThreshold = 0.6f;
     public const float ProjectileImpactThreshold = 0.15f;
 
+    // ── Cards ─────────────────────────────────────────────────────────────────
+    public const int CardDrawCount = 3;
+    public const int CardRerollsPerDraw = 1;
 }
