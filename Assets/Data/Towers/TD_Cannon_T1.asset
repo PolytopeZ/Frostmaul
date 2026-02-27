@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 950fd314d5a980c4bbe18dc56c4fc6ce, type: 3}
-  m_Name: TD_FrostArrow_T1
+  m_Name: TD_Cannon_T1
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  _displayName: Frost Arrow
-  _description: Slows ennemies with icy projectiles.
-  _icon: {fileID: 7484077442126242756, guid: 19006a6a39b6c2848803d5a27435f025, type: 3}
+  _displayName: Cannon
+  _description: Boom
+  _icon: {fileID: 0}
   _tier: 1
-  _type: 1
-  _damage: 12
-  _range: 2.5
-  _attackSpeed: 1.2
-  _cost: 10
+  _type: 4
+  _damage: 35
+  _range: 3
+  _attackSpeed: 0.4
+  _cost: 20
   _upgradePathA: {fileID: 0}
   _upgradePathB: {fileID: 0}
-  _prefab: {fileID: 0}
+  _prefab: {fileID: 6510115015897482351, guid: 028ff1f71a488244784b1a4bc0458999, type: 3}

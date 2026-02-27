@@ -38,7 +38,7 @@
 
 ### 🏹 Tower System (Core)
 - [x] Create `TowerData` ScriptableObject schema (cost, damage, range, attack speed, type)
-- [ ] Implement 3 prototype towers: Arrow Tower, Frost Spire, Cannon
+- [x] Implement 3 prototype towers: Arrow Tower, Frost Spire, Cannon
 - [ ] Tower auto-targeting logic (nearest enemy in range)
 - [ ] Tower auto-fire and projectile system
 - [ ] Tower placement menu (tap empty cell → show available towers)

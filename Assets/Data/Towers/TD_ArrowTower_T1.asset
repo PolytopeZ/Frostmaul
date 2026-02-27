@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 950fd314d5a980c4bbe18dc56c4fc6ce, type: 3}
-  m_Name: TD_FrostArrow_T1
+  m_Name: TD_ArrowTower_T1
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  _displayName: Frost Arrow
-  _description: Slows ennemies with icy projectiles.
+  _displayName: Arrow Tower
+  _description: Pew pew.
   _icon: {fileID: 7484077442126242756, guid: 19006a6a39b6c2848803d5a27435f025, type: 3}
   _tier: 1
-  _type: 1
-  _damage: 12
+  _type: 0
+  _damage: 10
   _range: 2.5
-  _attackSpeed: 1.2
+  _attackSpeed: 1.5
   _cost: 10
   _upgradePathA: {fileID: 0}
   _upgradePathB: {fileID: 0}
-  _prefab: {fileID: 0}
+  _prefab: {fileID: 7690751361674852865, guid: 18f051b37d273c44bafcd95ff8dbe4ec, type: 3}

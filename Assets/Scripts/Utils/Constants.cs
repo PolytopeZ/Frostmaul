@@ -16,4 +16,9 @@ public static class Constants
     // Errors 
     public const int InvalidCell = -1;
 
+    // ── Towers ────────────────────────────────────────────────────────────────
+    public const float TowerTargetingInterval = 0.2f;
+    public const string EnemyLayerName = "Enemy";
+
+
 }
