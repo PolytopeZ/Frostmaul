@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32a9c2e5e15cb1e42b6ff88fa434adcb, type: 3}
+  m_Name: ED_Goblin
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyData
+  _displayName: Goblin
+  _icon: {fileID: 7484077442126242756, guid: 19006a6a39b6c2848803d5a27435f025, type: 3}
+  _maxHp: 60
+  _speed: 2
+  _armor: 0
+  _rewardGold: 5
+  _isFlyer: 0
+  _prefab: {fileID: 0}

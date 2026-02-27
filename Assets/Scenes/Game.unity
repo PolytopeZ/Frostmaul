@@ -1033,7 +1033,7 @@ MonoBehaviour:
   _gridManager: {fileID: 1498736720}
   _highlight: {fileID: 627525474}
   _pathValidator: {fileID: 919338782}
-  _towerToPlace: {fileID: 0}
+  _towerToPlace: {fileID: 11400000, guid: 5bb4fd6099962a344ab62bc3605af769, type: 2}
 --- !u!1 &1793755215
 GameObject:
   m_ObjectHideFlags: 0
