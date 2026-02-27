@@ -29,6 +29,8 @@ public class CardPoolManager : MonoBehaviour
     private void HandlePhaseChanged(GamePhase phase)
     {
         if (phase != GamePhase.Reward) return;
+        if (RunManager.Current != null)
+            RunManager.Current.RerollsRemaining = Constants.CardRerollsPerDraw;
         CardData[] drawn = Draw();
         if (drawn.Length > 0)
             OnDrawReady?.Invoke(drawn);

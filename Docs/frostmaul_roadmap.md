@@ -74,9 +74,9 @@
 - [x] Implement card draw pool — weighted random draw per wave
 - [x] Implement 7 card types: Tower Unlock, Tower Modifier, Global Modifier, Maze Card, Relic, Curse Card, Boss Skip
 - [x] Build card draw UI — 3-card modal overlay after each wave
-- [ ] Implement free re-roll (1 per draw)
-- [ ] Track draw history within run to prevent duplicate cards
-- [ ] Apply card effects to run state immediately on selection
+- [x] Implement free re-roll (1 per draw)
+- [x] Track draw history within run to prevent duplicate cards
+- [x] Apply card effects to run state immediately on selection
 
 ### 🏹 Tower System (Full)
 - [ ] Implement remaining 2 base towers: Shock Tower, Beacon
