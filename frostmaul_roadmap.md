@@ -47,7 +47,7 @@
 ### 👾 Enemy System (Core)
 - [x] Create `EnemyData` ScriptableObject schema (HP, speed, armor, reward gold)
 - [x] Implement 2 prototype enemies: Scout, Warrior
-- [ ] Enemy spawner at top of grid
+- [x] Enemy spawner at top of grid
 - [x] Enemy pathfinding using Flow Field vectors
 - [ ] Enemy death → gold reward → kill count increment
 - [ ] Enemy escape → life deduction logic
