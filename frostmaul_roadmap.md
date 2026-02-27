@@ -53,7 +53,7 @@
 - [x] Enemy escape → life deduction logic
 
 ### 🌊 Wave System (Core)
-- [ ] Create `WaveData` ScriptableObject schema (enemy list, count, spawn interval)
+- [x] Create `WaveData` ScriptableObject schema (enemy list, count, spawn interval)
 - [ ] Implement 5 prototype waves with escalating difficulty
 - [ ] Build phase → Wave phase → Reward phase state machine
 - [ ] Basic HUD: lives counter, gold counter, wave counter
