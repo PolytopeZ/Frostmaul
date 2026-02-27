@@ -118,6 +118,24 @@ public partial class @FrostmaulInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Press"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed4b263e-5fc6-4900-af74-529709abb155"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DragDelta"",
+                    ""type"": ""Value"",
+                    ""id"": ""9a6f7af9-dc99-4708-85d0-77da509a68f2"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -153,6 +171,28 @@ public partial class @FrostmaulInput: IInputActionCollection2, IDisposable
                     ""action"": ""PreviewHold"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7900ef64-9c83-430e-9b26-e278225f1584"",
+                    ""path"": ""<Pointer>/press"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Press"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""56a8ae80-fd04-4b70-a9bc-80674f7f5c80"",
+                    ""path"": ""<Pointer>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DragDelta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +204,8 @@ public partial class @FrostmaulInput: IInputActionCollection2, IDisposable
         m_Gameplay_Tap = m_Gameplay.FindAction("Tap", throwIfNotFound: true);
         m_Gameplay_PointerPosition = m_Gameplay.FindAction("PointerPosition", throwIfNotFound: true);
         m_Gameplay_PreviewHold = m_Gameplay.FindAction("PreviewHold", throwIfNotFound: true);
+        m_Gameplay_Press = m_Gameplay.FindAction("Press", throwIfNotFound: true);
+        m_Gameplay_DragDelta = m_Gameplay.FindAction("DragDelta", throwIfNotFound: true);
     }
 
     ~@FrostmaulInput()
@@ -247,6 +289,8 @@ public partial class @FrostmaulInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Tap;
     private readonly InputAction m_Gameplay_PointerPosition;
     private readonly InputAction m_Gameplay_PreviewHold;
+    private readonly InputAction m_Gameplay_Press;
+    private readonly InputAction m_Gameplay_DragDelta;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -270,6 +314,14 @@ public partial class @FrostmaulInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/PreviewHold".
         /// </summary>
         public InputAction @PreviewHold => m_Wrapper.m_Gameplay_PreviewHold;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/Press".
+        /// </summary>
+        public InputAction @Press => m_Wrapper.m_Gameplay_Press;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/DragDelta".
+        /// </summary>
+        public InputAction @DragDelta => m_Wrapper.m_Gameplay_DragDelta;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -305,6 +357,12 @@ public partial class @FrostmaulInput: IInputActionCollection2, IDisposable
             @PreviewHold.started += instance.OnPreviewHold;
             @PreviewHold.performed += instance.OnPreviewHold;
             @PreviewHold.canceled += instance.OnPreviewHold;
+            @Press.started += instance.OnPress;
+            @Press.performed += instance.OnPress;
+            @Press.canceled += instance.OnPress;
+            @DragDelta.started += instance.OnDragDelta;
+            @DragDelta.performed += instance.OnDragDelta;
+            @DragDelta.canceled += instance.OnDragDelta;
         }
 
         /// <summary>
@@ -325,6 +383,12 @@ public partial class @FrostmaulInput: IInputActionCollection2, IDisposable
             @PreviewHold.started -= instance.OnPreviewHold;
             @PreviewHold.performed -= instance.OnPreviewHold;
             @PreviewHold.canceled -= instance.OnPreviewHold;
+            @Press.started -= instance.OnPress;
+            @Press.performed -= instance.OnPress;
+            @Press.canceled -= instance.OnPress;
+            @DragDelta.started -= instance.OnDragDelta;
+            @DragDelta.performed -= instance.OnDragDelta;
+            @DragDelta.canceled -= instance.OnDragDelta;
         }
 
         /// <summary>
@@ -386,5 +450,19 @@ public partial class @FrostmaulInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPreviewHold(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Press" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPress(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DragDelta" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDragDelta(InputAction.CallbackContext context);
     }
 }

@@ -34,7 +34,7 @@
 - [x] Implement Flow Field pathfinding (enemy navigation from top to bottom)
 - [x] Implement real-time BFS path validation — block placement if no valid exit exists
 - [x] Show path preview overlay (highlighted tiles + path length count) on tower hold
-- [ ] Handle grid scroll (drag vertically) for tall mazes
+- [x] Handle grid scroll (drag vertically) for tall mazes
 
 ### 🏹 Tower System (Core)
 - [ ] Create `TowerData` ScriptableObject schema (cost, damage, range, attack speed, type)

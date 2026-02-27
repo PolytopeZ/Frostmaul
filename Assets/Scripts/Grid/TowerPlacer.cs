@@ -31,6 +31,8 @@ public class TowerPlacer : MonoBehaviour
 
     private void OnTap(InputAction.CallbackContext ctx)
     {
+        if (CameraScroller.IsDragging) return;
+
         Vector2 screenPos = _input.Gameplay.PointerPosition.ReadValue<Vector2>();
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, 0f));
         worldPos.z = 0f;
