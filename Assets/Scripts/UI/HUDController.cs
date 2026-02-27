@@ -11,7 +11,7 @@ public class HUDController : MonoBehaviour
     private Label _waveLabel;
     private Label _phaseLabel;
     private Label _goldLabel;
-
+    private Label _timerLabel;
     private Button _startWaveBtn;
 
     private void Awake()
@@ -22,6 +22,7 @@ public class HUDController : MonoBehaviour
         _phaseLabel = root.Q<Label>("phase-label");
         _goldLabel = root.Q<Label>("gold-label");
         _startWaveBtn = root.Q<Button>("start-wave-btn");
+        _timerLabel = root.Q<Label>("timer-label");
         _startWaveBtn.clicked += _waveManager.StartWave;
     }
 
@@ -31,6 +32,14 @@ public class HUDController : MonoBehaviour
         UpdateGold(_playerResources.Gold);
         UpdateWave(_waveManager.CurrentWaveIndex);
         UpdatePhase(_waveManager.Phase);
+    }
+
+    private void Update()
+    {
+        if (_waveManager.Phase == GamePhase.Build)
+            _timerLabel.text = Mathf.CeilToInt(_waveManager.PhaseTimer) + "s";
+        else
+            _timerLabel.text = string.Empty;
     }
 
     private void OnEnable()

@@ -15,6 +15,7 @@ public class WaveManager : MonoBehaviour
 
     public GamePhase Phase => _phase;
     public int CurrentWaveIndex => _currentWaveIndex;
+    public float PhaseTimer => _phaseTimer;
 
     public static event Action<GamePhase> OnPhaseChanged;
     public static event Action<int> OnWaveStarted;  // wave index (0-based)
