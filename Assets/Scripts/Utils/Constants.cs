@@ -22,4 +22,6 @@ public static class Constants
 
     // ── Enemies ───────────────────────────────────────────────────────────────
     public const float EnemyExitThreshold = 0.6f;
+    public const float ProjectileImpactThreshold = 0.15f;
+
 }

@@ -40,7 +40,7 @@
 - [x] Create `TowerData` ScriptableObject schema (cost, damage, range, attack speed, type)
 - [x] Implement 3 prototype towers: Arrow Tower, Frost Spire, Cannon
 - [x] Tower auto-targeting logic (nearest enemy in range)
-- [ ] Tower auto-fire and projectile system
+- [x] Tower auto-fire and projectile system
 - [ ] Tower placement menu (tap empty cell → show available towers)
 - [ ] Tower sell mechanic (50% cost refund)
 

@@ -24,3 +24,5 @@ MonoBehaviour:
   _upgradePathA: {fileID: 0}
   _upgradePathB: {fileID: 0}
   _prefab: {fileID: 6510115015897482351, guid: 028ff1f71a488244784b1a4bc0458999, type: 3}
+  _projectilePrefab: {fileID: 394712087405808661, guid: 7682180cfbe43e847b0d9654b37db8e9, type: 3}
+  _projectileSpeed: 4

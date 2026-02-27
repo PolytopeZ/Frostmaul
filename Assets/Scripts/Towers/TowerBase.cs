@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class TowerBase : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class TowerBase : MonoBehaviour
     private int _enemyLayerMask;
 
     private static readonly Collider2D[] s_HitBuffer = new Collider2D[32];
+    private ObjectPool<ProjectileBase> _projectilePool;
+
 
     public TowerData Data => _data;
 
@@ -20,6 +23,27 @@ public class TowerBase : MonoBehaviour
         _enemyLayerMask = LayerMask.GetMask(Constants.EnemyLayerName);
         _targetingTimer = 0f;
         _attackCooldown = 0f;
+
+        if (_data.ProjectilePrefab != null)
+            InitializePool();
+    }
+
+    private void InitializePool()
+    {
+        _projectilePool = new ObjectPool<ProjectileBase>(
+            createFunc: () =>
+            {
+                ProjectileBase p = Instantiate(_data.ProjectilePrefab)
+                                       .GetComponent<ProjectileBase>();
+                p.SetPool(_projectilePool);
+                return p;
+            },
+            actionOnGet: p => p.gameObject.SetActive(true),
+            actionOnRelease: p => p.gameObject.SetActive(false),
+            actionOnDestroy: p => Destroy(p.gameObject),
+            defaultCapacity: 8,
+            maxSize: 32
+        );
     }
 
     private void Update()
@@ -80,8 +104,11 @@ public class TowerBase : MonoBehaviour
     private void Attack()
     {
         if (_currentTarget == null) return;
-        _currentTarget.TakeDamage(_data.Damage);
-        // TODO Projectile T1: spawn projectile instead of instant damage
+        if (_projectilePool == null) return;
+
+        ProjectileBase proj = _projectilePool.Get();
+        proj.transform.SetPositionAndRotation(transform.position, Quaternion.identity);
+        proj.Initialize(_currentTarget, _data.Damage, _data.ProjectileSpeed);
     }
 
 

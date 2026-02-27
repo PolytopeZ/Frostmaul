@@ -22,22 +22,26 @@ public class TowerData : ScriptableObject
     [SerializeField] private TowerData _upgradePathA; // Tier 1 → 2A, or Tier 2 → 3
     [SerializeField] private TowerData _upgradePathB; // Tier 1 → 2B only; null on Tier 2+
 
-    // ── Runtime Prefab ────────────────────────────────────────────────────────
+    // ── Runtime Prefabs ───────────────────────────────────────────────────────
     [SerializeField] private GameObject _prefab;
+    [SerializeField] private GameObject _projectilePrefab;
+    [SerializeField] [Min(1f)] private float _projectileSpeed;
 
     // ── Properties ────────────────────────────────────────────────────────────
-    public string DisplayName => _displayName;
-    public string Description => _description;
-    public Sprite Icon => _icon;
-    public int Tier => _tier;
-    public TowerType Type => _type;
-    public float Damage => _damage;
-    public float Range => _range;
-    public float AttackSpeed => _attackSpeed;
-    public int Cost => _cost;
-    public TowerData UpgradePathA => _upgradePathA;
-    public TowerData UpgradePathB => _upgradePathB;
-    public GameObject Prefab => _prefab;
+    public string     DisplayName     => _displayName;
+    public string     Description     => _description;
+    public Sprite     Icon            => _icon;
+    public int        Tier            => _tier;
+    public TowerType  Type            => _type;
+    public float      Damage          => _damage;
+    public float      Range           => _range;
+    public float      AttackSpeed     => _attackSpeed;
+    public int        Cost            => _cost;
+    public TowerData  UpgradePathA    => _upgradePathA;
+    public TowerData  UpgradePathB    => _upgradePathB;
+    public GameObject Prefab          => _prefab;
+    public GameObject ProjectilePrefab => _projectilePrefab;
+    public float      ProjectileSpeed  => _projectileSpeed;
 
     public bool CanUpgrade => _upgradePathA != null || _upgradePathB != null;
 }
