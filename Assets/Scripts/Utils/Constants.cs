@@ -20,5 +20,6 @@ public static class Constants
     public const float TowerTargetingInterval = 0.2f;
     public const string EnemyLayerName = "Enemy";
 
-
+    // ── Enemies ───────────────────────────────────────────────────────────────
+    public const float EnemyExitThreshold = 0.6f;
 }

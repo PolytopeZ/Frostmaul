@@ -45,8 +45,8 @@
 - [ ] Tower sell mechanic (50% cost refund)
 
 ### 👾 Enemy System (Core)
-- [ ] Create `EnemyData` ScriptableObject schema (HP, speed, armor, reward gold)
-- [ ] Implement 2 prototype enemies: Scout, Warrior
+- [x] Create `EnemyData` ScriptableObject schema (HP, speed, armor, reward gold)
+- [x] Implement 2 prototype enemies: Scout, Warrior
 - [ ] Enemy spawner at top of grid
 - [ ] Enemy pathfinding using Flow Field vectors
 - [ ] Enemy death → gold reward → kill count increment
