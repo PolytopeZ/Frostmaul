@@ -59,10 +59,10 @@
 - [x] Basic HUD: lives counter, gold counter, wave counter
 
 ### ✅ Prototype Exit Criteria
-- [ ] Player can build a maze that delays enemies meaningfully
-- [ ] Pathfinding validates correctly on every tower placement
-- [ ] 5 waves run from start to finish without crashes
-- [ ] Frame rate stable at 60 FPS on test device
+- [x] Player can build a maze that delays enemies meaningfully
+- [x] Pathfinding validates correctly on every tower placement
+- [x] 5 waves run from start to finish without crashes
+- [x] Frame rate stable at 60 FPS on test device
 
 ---
 
