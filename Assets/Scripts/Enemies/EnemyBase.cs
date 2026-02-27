@@ -1,6 +1,7 @@
 
 using System;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class EnemyBase : MonoBehaviour
 {
@@ -10,8 +11,9 @@ public class EnemyBase : MonoBehaviour
     private GridManager _gridManager;
     private float _currentHp;
     private bool _reachedExit;
-
     public EnemyData Data => _data;
+    private IObjectPool<EnemyBase> _pool;
+
 
     public static event Action<EnemyBase> OnEnemyKilled;
     public static event Action<EnemyBase> OnEnemyReachedExit;
@@ -64,9 +66,10 @@ public class EnemyBase : MonoBehaviour
         {
             _reachedExit = true;
             OnEnemyReachedExit?.Invoke(this);
-            Destroy(gameObject); // TODO EnemyPool: return to pool instead
+            Release();
         }
     }
+
 
     // ── Combat ────────────────────────────────────────────────────────────────
 
@@ -80,6 +83,26 @@ public class EnemyBase : MonoBehaviour
     private void Die()
     {
         OnEnemyKilled?.Invoke(this);
-        Destroy(gameObject); // TODO EnemyPool: return to pool instead
+        Release();
     }
+
+    private void Release()
+    {
+        if (_pool != null)
+            _pool.Release(this);
+        else
+            Destroy(gameObject); // fallback for scene-placed test enemies
+    }
+
+    public void SetPool(IObjectPool<EnemyBase> pool)
+    {
+        _pool = pool;
+    }
+
+    public void OnSpawn()
+    {
+        _currentHp = _data.MaxHp;
+        _reachedExit = false;
+    }
+
 }
