@@ -49,8 +49,8 @@
 - [x] Implement 2 prototype enemies: Scout, Warrior
 - [x] Enemy spawner at top of grid
 - [x] Enemy pathfinding using Flow Field vectors
-- [ ] Enemy death → gold reward → kill count increment
-- [ ] Enemy escape → life deduction logic
+- [x] Enemy death → gold reward → kill count increment
+- [x] Enemy escape → life deduction logic
 
 ### 🌊 Wave System (Core)
 - [ ] Create `WaveData` ScriptableObject schema (enemy list, count, spawn interval)
