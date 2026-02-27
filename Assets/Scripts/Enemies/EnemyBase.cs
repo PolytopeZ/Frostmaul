@@ -11,6 +11,7 @@ public class EnemyBase : MonoBehaviour
     private GridManager _gridManager;
     private float _currentHp;
     private bool _reachedExit;
+    private bool _isDead;
     public EnemyData Data => _data;
     private IObjectPool<EnemyBase> _pool;
 
@@ -75,13 +76,16 @@ public class EnemyBase : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (_isDead) return;
         float effective = Mathf.Max(0f, damage - _data.Armor);
         _currentHp -= effective;
         if (_currentHp <= 0f) Die();
     }
 
+
     private void Die()
     {
+        _isDead = true;
         OnEnemyKilled?.Invoke(this);
         Release();
     }
@@ -103,6 +107,7 @@ public class EnemyBase : MonoBehaviour
     {
         _currentHp = _data.MaxHp;
         _reachedExit = false;
+        _isDead = false;
     }
 
 }
