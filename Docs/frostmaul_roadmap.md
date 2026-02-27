@@ -70,7 +70,7 @@
 > **Goal:** Full playable game loop. All 30 waves, 4 classes, card system, complete tower roster, proper mobile touch UX.
 
 ### 🃏 Card System
-- [ ] Create `CardData` ScriptableObject schema (type, effect, rarity, description)
+- [x] Create `CardData` ScriptableObject schema (type, effect, rarity, description)
 - [ ] Implement card draw pool — weighted random draw per wave
 - [ ] Implement 7 card types: Tower Unlock, Tower Modifier, Global Modifier, Maze Card, Relic, Curse Card, Boss Skip
 - [ ] Build card draw UI — 3-card modal overlay after each wave
