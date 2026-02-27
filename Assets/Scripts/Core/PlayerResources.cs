@@ -59,4 +59,11 @@ public class PlayerResources : MonoBehaviour
         OnGoldChanged?.Invoke(_gold);
         return true;
     }
+
+    public void AddGold(int amount)
+    {
+        _gold += amount;
+        OnGoldChanged?.Invoke(_gold);
+    }
+
 }
