@@ -12,6 +12,8 @@ public class HUDController : MonoBehaviour
     private Label _phaseLabel;
     private Label _goldLabel;
 
+    private Button _startWaveBtn;
+
     private void Awake()
     {
         VisualElement root = _document.rootVisualElement;
@@ -19,6 +21,8 @@ public class HUDController : MonoBehaviour
         _waveLabel = root.Q<Label>("wave-label");
         _phaseLabel = root.Q<Label>("phase-label");
         _goldLabel = root.Q<Label>("gold-label");
+        _startWaveBtn = root.Q<Button>("start-wave-btn");
+        _startWaveBtn.clicked += _waveManager.StartWave;
     }
 
     private void Start()
@@ -48,7 +52,6 @@ public class HUDController : MonoBehaviour
     private void UpdateLives(int lives) => _livesLabel.text = $"Lives: {lives}";
     private void UpdateGold(int gold) => _goldLabel.text = $"Gold: {gold}";
     private void UpdateWave(int index) => _waveLabel.text = $"Wave {index + 1}";
-
     private void UpdatePhase(GamePhase phase)
     {
         _phaseLabel.text = phase switch
@@ -58,5 +61,6 @@ public class HUDController : MonoBehaviour
             GamePhase.Reward => "Reward!",
             _ => ""
         };
+        _startWaveBtn.SetEnabled(phase == GamePhase.Build);
     }
 }

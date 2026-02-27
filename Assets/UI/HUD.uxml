@@ -10,5 +10,7 @@
             style="color: rgb(255,210,80); font-size: 18px;" />
         <ui:Label name="gold-label"  text="Gold: 100"
             style="color: rgb(255,210,80); font-size: 18px;" />
+        <ui:Button name="start-wave-btn" text="Send Wave"
+            style="font-size: 16px; padding: 8px 20px;" />
     </ui:VisualElement>
 </ui:UXML>
