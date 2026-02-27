@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
+
 
 public class TowerPlacer : MonoBehaviour
 {
@@ -13,9 +15,14 @@ public class TowerPlacer : MonoBehaviour
     private FrostmaulInput _input;
     private Vector2Int _selectedCell = new Vector2Int(-1, -1);
     private bool _hasSelection;
+    private readonly Dictionary<Vector2Int, TowerBase> _placedTowers
+    = new Dictionary<Vector2Int, TowerBase>();
+
 
     public static event Action<Vector2Int> OnCellSelected;
     public static event Action OnSelectionCleared;
+    public static event Action<Vector2Int> OnTowerCellTapped;
+
 
     private void Awake()
     {
@@ -59,10 +66,16 @@ public class TowerPlacer : MonoBehaviour
         {
             SelectCell(cell);
         }
+        else if (_gridManager.GetCellState(cell) == CellState.Tower)
+        {
+            ClearSelection();
+            OnTowerCellTapped?.Invoke(cell);
+        }
         else
         {
             ClearSelection();
         }
+
     }
 
     private void SelectCell(Vector2Int cell)
@@ -81,9 +94,12 @@ public class TowerPlacer : MonoBehaviour
         if (!_playerResources.TrySpend(_towerToPlace.Cost)) return;
 
         _gridManager.SetCellState(cell, CellState.Tower);
-        Instantiate(_towerToPlace.Prefab, _gridManager.CellToWorld(cell), Quaternion.identity);
+        GameObject go = Instantiate(_towerToPlace.Prefab, _gridManager.CellToWorld(cell), Quaternion.identity);
+        TowerBase tower = go.GetComponent<TowerBase>();
+        if (tower != null) _placedTowers[cell] = tower;
         ClearSelection();
     }
+
 
     private void ClearSelection()
     {
@@ -102,5 +118,22 @@ public class TowerPlacer : MonoBehaviour
     {
         if (!_hasSelection) return;
         PlaceTower(_selectedCell);
+    }
+
+    public TowerBase GetTowerAt(Vector2Int cell)
+    {
+        _placedTowers.TryGetValue(cell, out TowerBase tower);
+        return tower;
+    }
+
+    public void SellTower(Vector2Int cell)
+    {
+        if (!_placedTowers.TryGetValue(cell, out TowerBase tower)) return;
+
+        int refund = tower.Data.Cost / 2;
+        _placedTowers.Remove(cell);
+        Destroy(tower.gameObject);
+        _gridManager.SetCellState(cell, CellState.Empty);
+        _playerResources.AddGold(refund);
     }
 }

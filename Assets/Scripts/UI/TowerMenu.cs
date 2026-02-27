@@ -13,6 +13,10 @@ public class TowerMenu : MonoBehaviour
 
     private VisualElement _panel;
     private ScrollView _scroll;
+    private VisualElement _sellPanel;
+    private Label _sellInfoLabel;
+    private Vector2Int _sellTargetCell;
+
 
     private readonly List<(Button btn, TowerData data)> _buttons
         = new List<(Button, TowerData)>();
@@ -27,6 +31,15 @@ public class TowerMenu : MonoBehaviour
         _scroll.contentContainer.style.paddingLeft = 4f;
 
         _panel.style.display = DisplayStyle.None;
+
+        _sellPanel = root.Q<VisualElement>("sell-panel");
+        _sellInfoLabel = root.Q<Label>("sell-info-label");
+
+        _sellPanel.style.display = DisplayStyle.None;
+
+        Button sellBtn = root.Q<Button>("sell-confirm-btn");
+        sellBtn.clicked += OnSellConfirmed;
+
         BuildButtons();
     }
 
@@ -35,6 +48,7 @@ public class TowerMenu : MonoBehaviour
         TowerPlacer.OnCellSelected += HandleCellSelected;
         TowerPlacer.OnSelectionCleared += HandleSelectionCleared;
         PlayerResources.OnGoldChanged += RefreshAffordability;
+        TowerPlacer.OnTowerCellTapped += HandleTowerCellTapped;
     }
 
     private void OnDisable()
@@ -42,6 +56,7 @@ public class TowerMenu : MonoBehaviour
         TowerPlacer.OnCellSelected -= HandleCellSelected;
         TowerPlacer.OnSelectionCleared -= HandleSelectionCleared;
         PlayerResources.OnGoldChanged -= RefreshAffordability;
+        TowerPlacer.OnTowerCellTapped -= HandleTowerCellTapped;
     }
 
     // ── Button Construction ───────────────────────────────────────────────────
@@ -115,6 +130,27 @@ public class TowerMenu : MonoBehaviour
     {
         IsOpen = false;
         _panel.style.display = DisplayStyle.None;
+        _sellPanel.style.display = DisplayStyle.None;
+    }
+
+    private void HandleTowerCellTapped(Vector2Int cell)
+    {
+        TowerBase tower = _towerPlacer.GetTowerAt(cell);
+        if (tower == null) return;
+
+        _sellTargetCell = cell;
+        int refund = tower.Data.Cost / 2;
+        _sellInfoLabel.text = $"Sell {tower.Data.DisplayName} for ${refund}?";
+
+        _sellPanel.style.display = DisplayStyle.Flex;
+        IsOpen = true;
+    }
+
+    private void OnSellConfirmed()
+    {
+        _towerPlacer.SellTower(_sellTargetCell);
+        _sellPanel.style.display = DisplayStyle.None;
+        IsOpen = false;
     }
 
     private void RefreshAffordability(int gold)

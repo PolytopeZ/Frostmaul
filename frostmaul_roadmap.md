@@ -42,7 +42,7 @@
 - [x] Tower auto-targeting logic (nearest enemy in range)
 - [x] Tower auto-fire and projectile system
 - [x] Tower placement menu (tap empty cell → show available towers)
-- [ ] Tower sell mechanic (50% cost refund)
+- [x] Tower sell mechanic (50% cost refund)
 
 ### 👾 Enemy System (Core)
 - [x] Create `EnemyData` ScriptableObject schema (HP, speed, armor, reward gold)
