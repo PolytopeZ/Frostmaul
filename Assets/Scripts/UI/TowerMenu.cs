@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -10,6 +11,7 @@ public class TowerMenu : MonoBehaviour
     [SerializeField] private TowerData[] _availableTowers;
 
     public static bool IsOpen { get; private set; }
+    public static event Action<TowerData> OnTowerPreview;
 
     private VisualElement _panel;
     private ScrollView _scroll;
@@ -75,6 +77,7 @@ public class TowerMenu : MonoBehaviour
             TowerData captured = data;
 
             Button btn = new Button(() => OnTowerChosen(captured));
+            btn.RegisterCallback<PointerDownEvent>(_ => OnTowerPreview?.Invoke(captured));
             btn.style.width = 88f;
             btn.style.height = 120f;
             btn.style.marginRight = 8f;
