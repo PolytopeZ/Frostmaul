@@ -12,6 +12,7 @@ public class WaveManager : MonoBehaviour
     private GamePhase _phase;
     private int _currentWaveIndex;
     private float _phaseTimer;
+    private bool _cardDrawPending;
 
     public GamePhase Phase => _phase;
     public int CurrentWaveIndex => _currentWaveIndex;
@@ -25,12 +26,16 @@ public class WaveManager : MonoBehaviour
     {
         WaveSpawner.OnWaveComplete += HandleWaveComplete;
         PlayerResources.OnLivesChanged += HandleLivesChanged;
+        CardPoolManager.OnDrawReady += HandleDrawReady;
+        CardEffectApplier.OnCardApplied += HandleCardApplied;
     }
 
     private void OnDisable()
     {
         WaveSpawner.OnWaveComplete -= HandleWaveComplete;
         PlayerResources.OnLivesChanged -= HandleLivesChanged;
+        CardPoolManager.OnDrawReady -= HandleDrawReady;
+        CardEffectApplier.OnCardApplied -= HandleCardApplied;
     }
 
     private void Start()
@@ -49,9 +54,12 @@ public class WaveManager : MonoBehaviour
         }
         else if (_phase == GamePhase.Reward)
         {
-            _phaseTimer -= Time.deltaTime;
-            if (_phaseTimer <= 0f)
-                AdvanceWave();
+            if (!_cardDrawPending)
+            {
+                _phaseTimer -= Time.deltaTime;
+                if (_phaseTimer <= 0f)
+                    AdvanceWave();
+            }
         }
     }
 
@@ -100,6 +108,15 @@ public class WaveManager : MonoBehaviour
     {
         if (lives <= 0)
             TriggerGameOver(false);
+    }
+
+    private void HandleDrawReady(CardData[] _) => _cardDrawPending = true;
+
+    private void HandleCardApplied(CardData _)
+    {
+        _cardDrawPending = false;
+        if (_phase == GamePhase.Reward)
+            AdvanceWave();
     }
 
     private void TriggerGameOver(bool victory)

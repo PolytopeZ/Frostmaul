@@ -29,7 +29,9 @@ public class CardPoolManager : MonoBehaviour
     private void HandlePhaseChanged(GamePhase phase)
     {
         if (phase != GamePhase.Reward) return;
-        OnDrawReady?.Invoke(Draw());
+        CardData[] drawn = Draw();
+        if (drawn.Length > 0)
+            OnDrawReady?.Invoke(drawn);
     }
 
     // ── Public API ────────────────────────────────────────────────────────────

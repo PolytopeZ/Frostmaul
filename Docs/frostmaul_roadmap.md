@@ -73,7 +73,7 @@
 - [x] Create `CardData` ScriptableObject schema (type, effect, rarity, description)
 - [x] Implement card draw pool — weighted random draw per wave
 - [x] Implement 7 card types: Tower Unlock, Tower Modifier, Global Modifier, Maze Card, Relic, Curse Card, Boss Skip
-- [ ] Build card draw UI — 3-card modal overlay after each wave
+- [x] Build card draw UI — 3-card modal overlay after each wave
 - [ ] Implement free re-roll (1 per draw)
 - [ ] Track draw history within run to prevent duplicate cards
 - [ ] Apply card effects to run state immediately on selection
