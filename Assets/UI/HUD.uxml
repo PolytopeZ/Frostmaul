@@ -1,0 +1,14 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:VisualElement name="hud-root"
+        style="width: 100%; flex-direction: row; justify-content: space-between;
+               padding: 12px; background-color: rgba(0,0,0,0.45);">
+        <ui:Label name="lives-label" text="Lives: 20"
+            style="color: white; font-size: 18px;" />
+        <ui:Label name="wave-label"  text="Wave 1"
+            style="color: white; font-size: 18px;" />
+        <ui:Label name="phase-label" text="Build"
+            style="color: rgb(255,210,80); font-size: 18px;" />
+        <ui:Label name="gold-label"  text="Gold: 100"
+            style="color: rgb(255,210,80); font-size: 18px;" />
+    </ui:VisualElement>
+</ui:UXML>

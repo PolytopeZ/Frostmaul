@@ -56,7 +56,7 @@
 - [x] Create `WaveData` ScriptableObject schema (enemy list, count, spawn interval)
 - [x] Implement 5 prototype waves with escalating difficulty
 - [x] Build phase → Wave phase → Reward phase state machine
-- [ ] Basic HUD: lives counter, gold counter, wave counter
+- [x] Basic HUD: lives counter, gold counter, wave counter
 
 ### ✅ Prototype Exit Criteria
 - [ ] Player can build a maze that delays enemies meaningfully
