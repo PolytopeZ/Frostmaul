@@ -43,7 +43,7 @@ public class TowerPlacer : MonoBehaviour
 
     private void OnTap(InputAction.CallbackContext ctx)
     {
-        if (TowerMenu.IsOpen) return;
+        if (TowerMenu.IsOpen && !_hasSelection) return;
         if (CameraScroller.IsDragging) return;
 
         Vector2 screenPos = _input.Gameplay.PointerPosition.ReadValue<Vector2>();
