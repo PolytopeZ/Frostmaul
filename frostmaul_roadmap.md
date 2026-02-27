@@ -37,7 +37,7 @@
 - [x] Handle grid scroll (drag vertically) for tall mazes
 
 ### 🏹 Tower System (Core)
-- [ ] Create `TowerData` ScriptableObject schema (cost, damage, range, attack speed, type)
+- [x] Create `TowerData` ScriptableObject schema (cost, damage, range, attack speed, type)
 - [ ] Implement 3 prototype towers: Arrow Tower, Frost Spire, Cannon
 - [ ] Tower auto-targeting logic (nearest enemy in range)
 - [ ] Tower auto-fire and projectile system

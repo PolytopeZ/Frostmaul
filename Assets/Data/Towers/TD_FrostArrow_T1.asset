@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 950fd314d5a980c4bbe18dc56c4fc6ce, type: 3}
+  m_Name: TD_FrostArrow_T1
+  m_EditorClassIdentifier: Assembly-CSharp::TowerData
+  _displayName: Frost Arrow
+  _description: Slows ennemies with icy projectiles.
+  _icon: {fileID: 0}
+  _tier: 1
+  _type: 1
+  _damage: 12
+  _range: 2.5
+  _attackSpeed: 1.2
+  _cost: 10
+  _upgradePathA: {fileID: 0}
+  _upgradePathB: {fileID: 0}
+  _prefab: {fileID: 0}
