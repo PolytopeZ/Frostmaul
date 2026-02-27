@@ -43,7 +43,7 @@ public class TowerPlacer : MonoBehaviour
 
     private void OnTap(InputAction.CallbackContext ctx)
     {
-        if (TowerMenu.IsOpen && !_hasSelection) return;
+        if (GameOverScreen.IsGameOver) return;
         if (CameraScroller.IsDragging) return;
 
         Vector2 screenPos = _input.Gameplay.PointerPosition.ReadValue<Vector2>();
@@ -51,6 +51,20 @@ public class TowerPlacer : MonoBehaviour
         worldPos.z = 0f;
 
         Vector2Int cell = _gridManager.WorldToCell(worldPos);
+
+        if (TowerMenu.IsOpen)
+        {
+            // Sell panel: block all grid taps
+            if (!_hasSelection) return;
+
+            // Build panel: only switch to a different buildable cell; ignore everything
+            // else so UI button clicks can fire without ClearSelection racing them
+            if (cell.x != Constants.InvalidCell
+                && cell != _selectedCell
+                && _gridManager.IsBuildable(cell))
+                SelectCell(cell);
+            return;
+        }
 
         if (cell.x == Constants.InvalidCell)
         {
@@ -75,7 +89,6 @@ public class TowerPlacer : MonoBehaviour
         {
             ClearSelection();
         }
-
     }
 
     private void SelectCell(Vector2Int cell)

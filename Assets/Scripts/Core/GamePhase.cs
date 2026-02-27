@@ -2,5 +2,6 @@ public enum GamePhase
 {
     Build,
     Wave,
-    Reward
+    Reward,
+    GameOver
 }

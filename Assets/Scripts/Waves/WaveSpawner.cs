@@ -33,6 +33,12 @@ public class WaveSpawner : MonoBehaviour
         StartCoroutine(SpawnRoutine(wave));
     }
 
+    public void StopWave()
+    {
+        StopAllCoroutines();
+        _waveActive = false;
+    }
+
     private IEnumerator SpawnRoutine(WaveData wave)
     {
         foreach (WaveEntry entry in wave.Entries)

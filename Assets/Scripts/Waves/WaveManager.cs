@@ -103,7 +103,10 @@ public class WaveManager : MonoBehaviour
 
     private void TriggerGameOver(bool victory)
     {
-        _phase = GamePhase.Build; // stop Update timers
+        if (_phase == GamePhase.GameOver) return;
+        _phase = GamePhase.GameOver;
+        _waveSpawner.StopWave();
+        OnPhaseChanged?.Invoke(_phase);
         OnGameOver?.Invoke(victory);
     }
 }

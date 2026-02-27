@@ -23,6 +23,7 @@ public class TowerMenu : MonoBehaviour
 
     private void Awake()
     {
+        IsOpen = false;
         VisualElement root = _document.rootVisualElement;
         _panel = root.Q<VisualElement>("tower-menu-panel");
         _scroll = root.Q<ScrollView>("tower-scroll");

@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:VisualElement name="gameover-root"
+        style="position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+               background-color: rgba(0,0,0,0.75);
+               align-items: center; justify-content: center;
+               display: none;">
+        <ui:Label name="result-label" text="Victory!"
+            style="font-size: 48px; color: white;
+                   -unity-font-style: bold; margin-bottom: 32px;" />
+        <ui:Button name="restart-btn" text="Play Again"
+            style="width: 240px; height: 72px; font-size: 22px;" />
+    </ui:VisualElement>
+</ui:UXML>
