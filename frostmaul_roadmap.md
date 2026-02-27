@@ -41,7 +41,7 @@
 - [x] Implement 3 prototype towers: Arrow Tower, Frost Spire, Cannon
 - [x] Tower auto-targeting logic (nearest enemy in range)
 - [x] Tower auto-fire and projectile system
-- [ ] Tower placement menu (tap empty cell → show available towers)
+- [x] Tower placement menu (tap empty cell → show available towers)
 - [ ] Tower sell mechanic (50% cost refund)
 
 ### 👾 Enemy System (Core)

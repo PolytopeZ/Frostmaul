@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,12 +8,14 @@ public class TowerPlacer : MonoBehaviour
     [SerializeField] private GameObject _highlight;
     [SerializeField] private PathValidator _pathValidator;
     [SerializeField] private TowerData _towerToPlace;
-
-
+    [SerializeField] private PlayerResources _playerResources;
 
     private FrostmaulInput _input;
     private Vector2Int _selectedCell = new Vector2Int(-1, -1);
     private bool _hasSelection;
+
+    public static event Action<Vector2Int> OnCellSelected;
+    public static event Action OnSelectionCleared;
 
     private void Awake()
     {
@@ -33,6 +36,7 @@ public class TowerPlacer : MonoBehaviour
 
     private void OnTap(InputAction.CallbackContext ctx)
     {
+        if (TowerMenu.IsOpen) return;
         if (CameraScroller.IsDragging) return;
 
         Vector2 screenPos = _input.Gameplay.PointerPosition.ReadValue<Vector2>();
@@ -67,25 +71,26 @@ public class TowerPlacer : MonoBehaviour
         _hasSelection = true;
         _highlight.SetActive(true);
         _highlight.transform.position = _gridManager.CellToWorld(cell);
+        OnCellSelected?.Invoke(cell);
     }
 
     private void PlaceTower(Vector2Int cell)
     {
         if (!_pathValidator.IsPlacementValid(cell)) return;
         if (_towerToPlace == null || _towerToPlace.Prefab == null) return;
+        if (!_playerResources.TrySpend(_towerToPlace.Cost)) return;
 
         _gridManager.SetCellState(cell, CellState.Tower);
         Instantiate(_towerToPlace.Prefab, _gridManager.CellToWorld(cell), Quaternion.identity);
         ClearSelection();
     }
 
-
-
     private void ClearSelection()
     {
         _hasSelection = false;
         _selectedCell = new Vector2Int(-1, -1);
         _highlight.SetActive(false);
+        OnSelectionCleared?.Invoke();
     }
 
     public void SetTowerData(TowerData data)
@@ -93,4 +98,9 @@ public class TowerPlacer : MonoBehaviour
         _towerToPlace = data;
     }
 
+    public void PlaceCurrentSelection()
+    {
+        if (!_hasSelection) return;
+        PlaceTower(_selectedCell);
+    }
 }

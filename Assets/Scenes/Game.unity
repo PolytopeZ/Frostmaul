@@ -212,6 +212,81 @@ Transform:
   - {fileID: 627525475}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &162731045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 162731047}
+  - component: {fileID: 162731046}
+  - component: {fileID: 162731048}
+  m_Layer: 0
+  m_Name: TowerMenu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &162731046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162731045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+  m_PanelSettings: {fileID: 11400000, guid: fea1e4023af913b41a88e3a9c33ce772, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 1d187b7bc66673046949ef6a6711a8be, type: 3}
+  m_SortingOrder: 20
+  m_Position: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
+  m_PivotReferenceSize: 0
+  m_Pivot: 0
+  m_WorldSpaceCollider: {fileID: 0}
+--- !u!4 &162731047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162731045}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &162731048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162731045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5989efeb580bd24e9d22a26ad68eb49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerMenu
+  _document: {fileID: 162731046}
+  _towerPlacer: {fileID: 1498736721}
+  _playerResources: {fileID: 1005641582}
+  _availableTowers:
+  - {fileID: 11400000, guid: 5bb4fd6099962a344ab62bc3605af769, type: 2}
+  - {fileID: 11400000, guid: ed78a390b55e521479770d6310c3ae54, type: 2}
+  - {fileID: 11400000, guid: 46c6e3ef7825df249afc1b89716eb6ce, type: 2}
 --- !u!1 &175809930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1256,7 @@ MonoBehaviour:
   _highlight: {fileID: 627525474}
   _pathValidator: {fileID: 919338782}
   _towerToPlace: {fileID: 11400000, guid: 5bb4fd6099962a344ab62bc3605af769, type: 2}
+  _playerResources: {fileID: 1005641582}
 --- !u!1 &1793755215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,5 +1485,6 @@ SceneRoots:
   - {fileID: 1907554349}
   - {fileID: 1005641583}
   - {fileID: 1966911460}
+  - {fileID: 162731047}
   - {fileID: 722324923}
   - {fileID: 589495321}

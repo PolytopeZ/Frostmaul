@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:VisualElement name="tower-menu-panel"
+        style="position: absolute; bottom: 0; left: 0; right: 0;
+               background-color: rgba(20,20,20,0.92);
+               padding: 12px;
+               border-top-width: 2px;
+               border-top-color: rgb(70,70,70);">
+        <ui:ScrollView name="tower-scroll" mode="Horizontal"
+            style="height: 140px;" />
+    </ui:VisualElement>
+</ui:UXML>
