@@ -6,4 +6,5 @@ public enum TowerType
     Lightning,
     Stone,
     Shadow,
+    Support
 }
