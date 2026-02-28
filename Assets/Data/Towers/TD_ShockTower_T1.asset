@@ -23,6 +23,6 @@ MonoBehaviour:
   _cost: 75
   _upgradePathA: {fileID: 0}
   _upgradePathB: {fileID: 0}
-  _prefab: {fileID: 0}
-  _projectilePrefab: {fileID: 0}
+  _prefab: {fileID: 7201378139198160505, guid: 38b52a0c2f2c434499e750d58afc17f3, type: 3}
+  _projectilePrefab: {fileID: 2179895708807476906, guid: b71b2e3b26cde8d4b904e18ffde7b725, type: 3}
   _projectileSpeed: 12

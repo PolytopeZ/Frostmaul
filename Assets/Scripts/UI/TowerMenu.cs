@@ -48,8 +48,6 @@ public class TowerMenu : MonoBehaviour
 
         Button cancelSellBtn = root.Q<Button>("cancel-sell-btn");
         cancelSellBtn.clicked += _towerPlacer.CancelSelection;
-
-        BuildButtons();
     }
 
     private void OnEnable()
@@ -77,48 +75,69 @@ public class TowerMenu : MonoBehaviour
             TowerData captured = data;
 
             Button btn = new Button(() => OnTowerChosen(captured));
-            btn.RegisterCallback<PointerDownEvent>(_ => OnTowerPreview?.Invoke(captured));
-            btn.style.width = 88f;
-            btn.style.height = 120f;
-            btn.style.marginRight = 8f;
-            btn.style.flexDirection = FlexDirection.Column;
-            btn.style.alignItems = Align.Center;
-            btn.style.justifyContent = Justify.Center;
-            btn.style.backgroundColor = new StyleColor(new Color(0.18f, 0.22f, 0.28f));
-            btn.style.borderTopLeftRadius = 8f;
-            btn.style.borderTopRightRadius = 8f;
-            btn.style.borderBottomLeftRadius = 8f;
-            btn.style.borderBottomRightRadius = 8f;
-
-            VisualElement icon = new VisualElement();
-            icon.style.width = 52f;
-            icon.style.height = 52f;
-            icon.style.backgroundColor = new StyleColor(new Color(0.35f, 0.6f, 0.9f));
-            icon.style.marginBottom = 6f;
-            icon.style.borderTopLeftRadius = 6f;
-            icon.style.borderTopRightRadius = 6f;
-            icon.style.borderBottomLeftRadius = 6f;
-            icon.style.borderBottomRightRadius = 6f;
-
-            Label nameLabel = new Label(data.DisplayName);
-            nameLabel.style.color = new StyleColor(Color.white);
-            nameLabel.style.fontSize = 11f;
-            nameLabel.style.unityTextAlign = TextAnchor.MiddleCenter;
-            nameLabel.style.whiteSpace = WhiteSpace.Normal;
-            nameLabel.style.width = 80f;
-
-            Label costLabel = new Label($"${data.Cost}");
-            costLabel.style.color = new StyleColor(new Color(1f, 0.84f, 0.2f));
-            costLabel.style.fontSize = 14f;
-            costLabel.style.unityTextAlign = TextAnchor.MiddleCenter;
-            costLabel.style.marginTop = 2f;
-
-            btn.Add(icon);
-            btn.Add(nameLabel);
-            btn.Add(costLabel);
+            // ... rest of BuildButtons ...
             _scroll.Add(btn);
             _buttons.Add((btn, captured));
         }
+    }
+
+    private void RebuildButtons()
+    {
+        _scroll.contentContainer.Clear();
+        _buttons.Clear();
+        foreach (TowerData data in _availableTowers)
+            AddTowerButton(data);
+        if (RunManager.Current != null)
+            foreach (TowerData data in RunManager.Current.UnlockedTowers)
+                AddTowerButton(data);
+    }
+
+    private void AddTowerButton(TowerData data)
+    {
+        TowerData captured = data;
+
+        Button btn = new Button(() => OnTowerChosen(captured));
+        btn.RegisterCallback<PointerDownEvent>(_ => OnTowerPreview?.Invoke(captured));
+        btn.style.width = 88f;
+        btn.style.height = 120f;
+        btn.style.marginRight = 8f;
+        btn.style.flexDirection = FlexDirection.Column;
+        btn.style.alignItems = Align.Center;
+        btn.style.justifyContent = Justify.Center;
+        btn.style.backgroundColor = new StyleColor(new Color(0.18f, 0.22f, 0.28f));
+        btn.style.borderTopLeftRadius = 8f;
+        btn.style.borderTopRightRadius = 8f;
+        btn.style.borderBottomLeftRadius = 8f;
+        btn.style.borderBottomRightRadius = 8f;
+
+        VisualElement icon = new VisualElement();
+        icon.style.width = 52f;
+        icon.style.height = 52f;
+        icon.style.backgroundColor = new StyleColor(new Color(0.35f, 0.6f, 0.9f));
+        icon.style.marginBottom = 6f;
+        icon.style.borderTopLeftRadius = 6f;
+        icon.style.borderTopRightRadius = 6f;
+        icon.style.borderBottomLeftRadius = 6f;
+        icon.style.borderBottomRightRadius = 6f;
+
+        Label nameLabel = new Label(data.DisplayName);
+        nameLabel.style.color = new StyleColor(Color.white);
+        nameLabel.style.fontSize = 11f;
+        nameLabel.style.unityTextAlign = TextAnchor.MiddleCenter;
+        nameLabel.style.whiteSpace = WhiteSpace.Normal;
+        nameLabel.style.width = 80f;
+
+        Label costLabel = new Label($"${data.Cost}");
+        costLabel.style.color = new StyleColor(new Color(1f, 0.84f, 0.2f));
+        costLabel.style.fontSize = 14f;
+        costLabel.style.unityTextAlign = TextAnchor.MiddleCenter;
+        costLabel.style.marginTop = 2f;
+
+        btn.Add(icon);
+        btn.Add(nameLabel);
+        btn.Add(costLabel);
+        _scroll.Add(btn);
+        _buttons.Add((btn, captured));
     }
 
     // ── Callbacks ─────────────────────────────────────────────────────────────
@@ -132,6 +151,7 @@ public class TowerMenu : MonoBehaviour
     private void HandleCellSelected(Vector2Int cell)
     {
         IsOpen = true;
+        RebuildButtons();
         _panel.style.display = DisplayStyle.Flex;
         RefreshAffordability(_playerResources.Gold);
     }

@@ -79,8 +79,8 @@
 - [x] Apply card effects to run state immediately on selection
 
 ### 🏹 Tower System (Full)
-- [ ] Implement remaining 2 base towers: Shock Tower, Beacon
-- [ ] Implement 8 card-unlocked towers: Inferno Obelisk, Phase Cannon, Mirror Shard, Void Trap, Echo Tower, Root Maw, Bounty Pylon, Hypercane
+- [x] Implement remaining 2 base towers: Shock Tower, Beacon
+- [x] Implement 8 card-unlocked towers: Inferno Obelisk, Phase Cannon, Mirror Shard, Void Trap, Echo Tower, Root Maw, Bounty Pylon, Hypercane
 - [ ] Tower upgrade system — Tier 1, Tier 2 fork (Path A / Path B), Tier 3
 - [ ] Upgrade UI — tap placed tower → show upgrade options with cost and description
 - [ ] Tower synergy detection — check adjacent cells on placement, apply synergy bonus

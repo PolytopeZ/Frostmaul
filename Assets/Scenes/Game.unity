@@ -318,6 +318,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5bb4fd6099962a344ab62bc3605af769, type: 2}
   - {fileID: 11400000, guid: ed78a390b55e521479770d6310c3ae54, type: 2}
   - {fileID: 11400000, guid: 46c6e3ef7825df249afc1b89716eb6ce, type: 2}
+  - {fileID: 11400000, guid: 0a1e3f043d575e74388b2a19f954fef3, type: 2}
+  - {fileID: 11400000, guid: eddb466f126097f48a9c4932a7a32500, type: 2}
 --- !u!1 &175809930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1691,6 +1693,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardPoolManager
   _allCards:
   - {fileID: 11400000, guid: 818effdc48141274e99113651a071aa3, type: 2}
+  - {fileID: 11400000, guid: aa7d376f68b52ff4b8a197d0acfa463a, type: 2}
+  - {fileID: 11400000, guid: 01ac415e6b5867645b0b783af1a39a9b, type: 2}
+  - {fileID: 11400000, guid: 5ea25d21e39178f46818ea1eb2ffec00, type: 2}
+  - {fileID: 11400000, guid: 129b87956a9b99949b89afcafa220be4, type: 2}
+  - {fileID: 11400000, guid: fb75f1d4d873e034cb9ffd099a96cecd, type: 2}
+  - {fileID: 11400000, guid: 2f8da2dadd8a68842b0e8bdbc764b52e, type: 2}
+  - {fileID: 11400000, guid: 7ba34c65244787c48811d217a889c177, type: 2}
+  - {fileID: 11400000, guid: 0973701979bebd14aaf3e065bff956db, type: 2}
 --- !u!4 &1630390707
 Transform:
   m_ObjectHideFlags: 0

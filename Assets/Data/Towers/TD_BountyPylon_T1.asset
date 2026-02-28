@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 950fd314d5a980c4bbe18dc56c4fc6ce, type: 3}
-  m_Name: TD_Beacon_T1
+  m_Name: TD_BountyPylon_T1
   m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  _displayName: Beacon
-  _description: Boost nearby towers. No direct damage.
+  _displayName: Bounty Pylon
+  _description: Gold aura
   _icon: {fileID: 7484077442126242756, guid: 19006a6a39b6c2848803d5a27435f025, type: 3}
   _tier: 1
   _type: 6
   _damage: 0
-  _range: 2.5
+  _range: 3
   _attackSpeed: 1
-  _cost: 120
+  _cost: 80
   _upgradePathA: {fileID: 0}
   _upgradePathB: {fileID: 0}
-  _prefab: {fileID: 6770616535792714451, guid: e0578de571a796f44b0fe980174c0160, type: 3}
-  _projectilePrefab: {fileID: 2179895708807476906, guid: b71b2e3b26cde8d4b904e18ffde7b725, type: 3}
+  _prefab: {fileID: 8008385130092452407, guid: 1c17887790144434bba47352496aea4f, type: 3}
+  _projectilePrefab: {fileID: 0}
   _projectileSpeed: 1
